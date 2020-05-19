@@ -1,5 +1,11 @@
 
 %table
+  %tr
+    %th ID
+    %th Hospital Name
+    %th Doctor Name
+    %th Booking Doctor
+    %th Booking List
   - @doctors.each do |doctor|
     %tr
       %td
@@ -7,4 +13,8 @@
       %td
         = doctor.hospital.name
       %td
-        = link_to doctor.name, booking_new_path(doctor_id: doctor.id)
+        = doctor.name
+      %td
+        = link_to 'New Booking', booking_new_path(doctor_id: doctor.id)
+      %td
+        = link_to 'Booking List', booking_doctor_index_path(doctor_id: doctor.id)

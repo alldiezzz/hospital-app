@@ -1,12 +1,17 @@
 class BookingsController < ApplicationController
   def new
-    doctor
-    return redirect_to doctor_index_path(doctor.hospital_id), alert: 'No Dctor Found' if doctor.blank?
-    @booking = Booking.new(doctor_id: doctor.id)
+    get_doctor
+    return redirect_to doctor_index_path(@doctor.hospital_id), alert: 'No Dctor Found' if @doctor.blank?
+    @booking = Booking.new(doctor_id: @doctor.id)
   end
 
   def index
     @bookings = current_user.bookings
+  end
+
+  def doctor
+    get_doctor
+    @bookings = @doctor.bookings
   end
 
   def create
@@ -22,7 +27,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:doctor_id, :booking_time)
   end
 
-  def doctor
+  def get_doctor
     @doctor = Doctor.find_by_id(params[:doctor_id])
   end
 end

@@ -1,9 +1,16 @@
 %table
+  %tr
+    %th ID
+    %th Hospital Name
+    %th Hospital Address
+    %th Doctor List
   - @hospitals.each do |hospital|
     %tr
       %td
         = hospital.id
       %td
-        = link_to hospital.name, doctor_index_path(hospital_id: hospital.id)
+        = hospital.name
       %td
         = hospital.address
+      %td
+        = link_to 'See List' , doctor_index_path(hospital_id: hospital.id)

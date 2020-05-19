@@ -1,9 +1,10 @@
-
+%h3
+  = @doctor.name
 - if @bookings.present?
   %table
     %tr
       %th No
-      %th Doctor Name
+      %th Patient Name
       %th Hospital Name
       %th Booking Time
     - @bookings.each_with_index do |booking, idx|
@@ -11,10 +12,10 @@
         %td
           = idx + 1
         %td
-          = booking.doctor.name
+          = booking.user.email
         %td
           = booking.doctor.hospital.name
         %td
           = booking.booking_time
 - else
-  Not Yet Booking Doctor.
+  No Booking for this doctor yet
