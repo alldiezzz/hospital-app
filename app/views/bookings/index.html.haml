@@ -1,0 +1,10 @@
+
+%table
+  - @bookings.each do |booking|
+    %tr
+      %td
+        = booking.doctor.name
+      %td
+        = booking.doctor.hospital.name
+      %td
+        = booking.booking_time

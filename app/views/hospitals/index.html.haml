@@ -1,0 +1,9 @@
+%table
+  - @hospitals.each do |hospital|
+    %tr
+      %td
+        = hospital.id
+      %td
+        = link_to hospital.name, doctor_index_path(hospital_id: hospital.id)
+      %td
+        = hospital.address
