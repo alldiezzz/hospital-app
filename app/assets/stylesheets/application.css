@@ -14,9 +14,6 @@
  *= require_self
  */
 
-@import "~bootstrap/scss/bootstrap";
-@import "~tempusdominus-bootstrap-4/src/sass/tempusdominus-bootstrap-4";
-
 ul {
   font-family: Verdana,sans-serif;
   font-size: 15px;
